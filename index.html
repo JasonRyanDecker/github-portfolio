@@ -459,13 +459,15 @@
 
     .contact__email {
       display: inline-block;
-      padding: 1rem 2.5rem;
+      /* Use relative padding to shrink gracefully on smaller screens */
+      padding: 0.8rem 2rem; 
       background: var(--primary);
       color: white;
       text-decoration: none;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 1.1rem;
+      /* Use clamp to ensure the font scales nicely between 1rem and 1.1rem */
+      font-size: clamp(1rem, 2vw, 1.1rem); 
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
     }
@@ -570,6 +572,11 @@
       .nav__links li {
         padding: 1rem 0;
         border-bottom: 1px solid var(--border);
+      }
+
+      .contact__email {
+        padding: 0.7rem 1.5rem; /* Slightly reduced padding on mobile */
+        /* font-size clamp already handles the size, but this ensures good touch area */
       }
 
       .about__stats {
@@ -720,7 +727,7 @@
         Whether you're looking for expertise in data pipeline development, business intelligence solutions, 
         or just want to connect, feel free to reach out!
       </p>
-      <a href="mailto:jasondecker.dataanalytics@gmail.com" class="contact__email">jasondecker.dataanalytics@gmail.com</a>
+      <a href="mailto:jasondecker.dataanalytics@gmail.com" class="contact__email">Contact</a>
     </div>
   </section>
 
