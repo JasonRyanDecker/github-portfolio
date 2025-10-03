@@ -1,955 +1,635 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jason Decker - Data Management & Analytics Specialist. Expert in data pipeline development, ETL processes, and business intelligence solutions.">
-  <title>Jason Decker | Data Management & Analytics Specialist</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jason Decker | Aspiring Data Analyst</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
       color: #333;
       background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
       background-attachment: fixed;
     }
-
-    :root {
-      --primary: #4a90e2;
-      --primary-dark: #357abd;
-      --secondary: #2c3e50;
-      --accent: #3498db;
-      --text-dark: #2c3e50;
-      --text-light: #555;
-      --bg-light: #f8f9fa;
-      --border: #e0e0e0;
-      --white: #ffffff;
-      --success: #27ae60;
-    }
-
-    /* Navigation */
+    
     .nav {
       position: fixed;
       top: 0;
       width: 100%;
       background: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       z-index: 1000;
-      transition: all 0.3s ease;
-    }
-
-    .nav__content {
-      max-width: 1200px;
-      margin: 0 auto;
       padding: 1rem 2rem;
       display: flex;
-      justify-content: center; /* Centered the content */
+      justify-content: center;
       align-items: center;
     }
-
-    .nav__links {
-      display: flex;
+    
+    #nav-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #2c3e50;
+      cursor: pointer;
+    }
+    
+    .nav ul {
       list-style: none;
+      display: flex;
+      justify-content: center;
       gap: 2rem;
     }
-
-    .nav__link {
-      color: var(--text-dark);
+    
+    .nav a {
+      color: #2c3e50;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s ease;
-      position: relative;
+      transition: color 0.3s;
     }
-
-    .nav__link::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: width 0.3s ease;
-    }
-
-    .nav__link:hover::after {
-      width: 100%;
-    }
-
-    .nav__link:hover {
-      color: var(--primary);
-    }
-
-    /* Header/Hero */
+    
+    .nav a:hover { color: #4a90e2; }
+    
     .header {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: 80px;
-      background: linear-gradient(135deg, rgba(74, 144, 226, 0.05), rgba(52, 152, 219, 0.05));
-    }
-
-    .header__content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
+      justify-content: center;
       text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(74,144,226,0.05), rgba(52,152,219,0.05));
     }
-
-    .header__title {
+    
+    h1 {
       font-size: clamp(2.5rem, 6vw, 4rem);
-      color: var(--text-dark);
+      color: #2c3e50;
       margin-bottom: 1rem;
-      font-weight: 800;
-      line-height: 1.2;
     }
-
-    .header__title span {
-      color: var(--primary);
-      display: block;
-      margin-top: 0.5rem;
-    }
-
-    .header__title .typing {
-      border-right: 3px solid var(--primary);
-      animation: blink 0.7s step-end infinite;
-      min-height: 1.2em;
-    }
-
-    @keyframes blink {
-      0%, 100% { border-color: var(--primary); }
-      50% { border-color: transparent; }
-    }
-
-    .header__subtitle {
+    
+    h1 span { color: #4a90e2; }
+    
+    .subtitle {
       font-size: clamp(1.2rem, 3vw, 1.8rem);
-      color: var(--text-light);
+      color: #555;
       margin-bottom: 2rem;
-      font-weight: 400;
     }
-
-    .header__cta {
+    
+    .cta {
       display: inline-block;
       padding: 1rem 2.5rem;
-      background: var(--primary);
+      background: #4a90e2;
       color: white;
       text-decoration: none;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(74,144,226,0.3);
     }
-
-    .header__cta:hover {
-      background: var(--primary-dark);
+    
+    .cta:hover {
+      background: #357abd;
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
     }
-
-    /* Section Styles */
+    
     section {
       padding: 5rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
     }
-
-    .section__title {
-      font-size: clamp(2rem, 4vw, 2.5rem);
-      color: #ffffff;
-      margin-bottom: 3rem;
-      text-align: center;
-      font-weight: 700;
-      position: relative;
-      padding-bottom: 1rem;
-    }
-  .section__title_inverse {
-      font-size: clamp(2rem, 4vw, 2.5rem);
-      color: #4a90e2;
-      margin-bottom: 3rem;
-      text-align: center;
-      font-weight: 700;
-      position: relative;
-      padding-bottom: 1rem;
-    }
-
-    .section__title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: var(--primary);
-      border-radius: 2px;
-      color: white;
-    }
-
-    /* About Section */
-    .about {
-      background: var(--white);
+    
+    .white-bg {
+      background: white;
       border-radius: 10px;
       padding: 4rem 2rem;
     }
-
-    .about__content {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .about__text p {
-      color: var(--text-light);
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.8;
-    }
-
-    .about__skills {
-      margin-top: 3rem;
-    }
-
-    .about__skills h3 {
-      color: var(--text-dark);
-      margin-bottom: 1.5rem;
-      font-size: 1.4rem;
+    
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      margin-bottom: 3rem;
       text-align: center;
+      color: #fff;
     }
-
-    .skills__list {
+    
+    .white-bg h2 { color: #4a90e2; }
+    
+    .about-text {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      font-size: 1.1rem;
+      color: #555;
+    }
+    
+    .about-text p { margin-bottom: 1.5rem; }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .stat {
+      text-align: center;
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-radius: 10px;
+      border: 2px solid #e0e0e0;
+      transition: all 0.3s;
+    }
+    
+    .stat:hover {
+      border-color: #4a90e2;
+      transform: translateY(-5px);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #4a90e2;
+    }
+    
+    .stat-label {
+      color: #555;
+      font-size: 0.95rem;
+    }
+    
+    .skills {
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
       justify-content: center;
+      margin-top: 2rem;
     }
-
-    .skill__tag {
-      background: var(--bg-light);
-      color: var(--text-dark);
+    
+    .skill {
+      background: #f8f9fa;
       padding: 0.5rem 1rem;
       border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      border: 1px solid var(--border);
-      transition: all 0.3s ease;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s;
     }
-
-    .skill__tag:hover {
-      background: var(--primary);
+    
+    .skill:hover {
+      background: #4a90e2;
       color: white;
-      border-color: var(--primary);
       transform: translateY(-2px);
     }
-
-    .about__stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .stat__card {
-      text-align: center;
-      padding: 1.5rem;
-      background: var(--bg-light);
-      border-radius: 10px;
-      border: 2px solid var(--border);
-      transition: all 0.3s ease;
-    }
-
-    .stat__card:hover {
-      border-color: var(--primary);
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .stat__number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .stat__label {
-      color: var(--text-light);
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-
-    /* Projects Section */
-    .projects {
-      background: transparent;
-    }
-
-    .projects__grid {
+    
+    .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2.5rem;
       margin-top: 3rem;
     }
-
-    .project__card {
-      background: var(--white);
+    
+    .project-card {
+      background: white;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s;
       display: flex;
       flex-direction: column;
     }
-
-    .project__card:hover {
+    
+    .project-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
     }
-
-    .project__image {
-      width: 100%;
+    
+    .project-image {
       height: 200px;
-      object-fit: cover;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      padding: 2rem;
+      background: linear-gradient(135deg, #4a90e2, #3498db);
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 2rem;
     }
-
-    .project__image img {
+    
+    .project-image img {
       max-width: 120px;
       max-height: 120px;
     }
-
-    .project__content {
+    
+    .project-content { 
       padding: 1.5rem;
-      flex: 1;
       display: flex;
       flex-direction: column;
+      flex: 1;
     }
-
-    .project__title {
+    
+    .project-title {
       font-size: 1.4rem;
-      color: var(--text-dark);
+      color: #2c3e50;
       margin-bottom: 1rem;
-      font-weight: 600;
     }
-
-    .project__description {
-      color: var(--text-light);
+    
+    .project-description {
+      color: #555;
       margin-bottom: 1.5rem;
-      line-height: 1.6;
       flex: 1;
     }
-
-    .project__tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .project__tag {
-      background: var(--bg-light);
-      color: var(--text-dark);
-      padding: 0.3rem 0.8rem;
-      border-radius: 15px;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-
-    .project__links {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .project__link {
-      flex: 1;
+    
+    .project-link {
+      display: block;
       text-align: center;
-      padding: 0.7rem 1.2rem;
-      background: var(--primary);
+      padding: 0.7rem;
+      background: #4a90e2;
       color: white;
       text-decoration: none;
       border-radius: 5px;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      transition: all 0.3s;
     }
-
-    .project__link:hover {
-      background: var(--primary-dark);
+    
+    .project-link:hover {
+      background: #357abd;
       transform: translateY(-2px);
     }
-
-    /* Achievements Section */
-    .achievements {
-      background: var(--white);
-      border-radius: 10px;
-      padding: 4rem 2rem;
-    }
-
-    .achievements__grid {
+    
+    .achievements-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
-
-    .achievement__card {
+    
+    .achievement {
       text-align: center;
       padding: 2rem;
-      background: var(--bg-light);
+      background: #f8f9fa;
       border-radius: 10px;
-      transition: all 0.3s ease;
+      transition: all 0.3s;
     }
-
-    .achievement__card:hover {
+    
+    .achievement:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
-
-    .achievement__icon {
+    
+    .achievement-icon {
       font-size: 3rem;
       margin-bottom: 1rem;
     }
-
-    .achievement__title {
+    
+    .achievement-title {
       font-size: 1.2rem;
-      color: var(--text-dark);
+      color: #2c3e50;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
-
-    .achievement__description {
-      color: var(--text-light);
+    
+    .achievement-desc {
+      color: #555;
       font-size: 0.95rem;
     }
-
-    /* Contact Section */
-    .contact {
-      background: transparent;
-      text-align: center;
-    }
-
-    .contact__content {
+    
+    .contact-content {
       max-width: 700px;
       margin: 0 auto;
-      background: var(--white);
+      background: white;
       padding: 3rem;
       border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
     }
-
-    .contact__text {
-      color: var(--text-light);
+    
+    .contact-text {
+      color: #555;
       font-size: 1.1rem;
       margin-bottom: 2rem;
-      line-height: 1.8;
     }
-
-    .contact__email {
-      display: inline-block;
-      /* Use relative padding to shrink gracefully on smaller screens */
-      padding: 0.8rem 2rem; 
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 600;
-      /* Use clamp to ensure the font scales nicely between 1rem and 1.1rem */
-      font-size: clamp(1rem, 2vw, 1.1rem); 
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
-    }
-
-    .contact__email:hover {
-      background: var(--primary-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
-    }
-
-    /* Footer */
-    .footer {
-      background: var(--secondary);
+    
+    footer {
+      background: #2c3e50;
       color: white;
       padding: 3rem 2rem;
       text-align: center;
     }
-
-    .footer__social {
+    
+    .social {
       display: flex;
       justify-content: center;
       gap: 2rem;
       margin-bottom: 2rem;
     }
-
-    .footer__link {
+    
+    .social a {
       color: white;
       font-size: 1.5rem;
-      transition: all 0.3s ease;
+      transition: all 0.3s;
     }
-
-    .footer__link:hover {
-      color: var(--primary);
+    
+    .social a:hover {
+      color: #4a90e2;
       transform: translateY(-3px);
     }
-
-    .footer__text {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 0.9rem;
-    }
-
-    /* Loading States */
+    
     .loading {
       text-align: center;
       padding: 3rem;
-      color: var(--text-light);
+      color: #fff;
     }
-
+    
     .spinner {
-      border: 3px solid var(--border);
-      border-top: 3px solid var(--primary);
+      border: 3px solid #e0e0e0;
+      border-top: 3px solid #4a90e2;
       border-radius: 50%;
       width: 40px;
       height: 40px;
       animation: spin 1s linear infinite;
       margin: 1rem auto;
     }
-
+    
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-
-    /* Mobile Menu Toggle */
-    .nav__toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--text-dark);
-      cursor: pointer;
-    }
-
-    /* Responsive Design */
+    
     @media (max-width: 768px) {
-      .nav__toggle {
-        display: block;
-      }
-
-      .nav__links {
+      #nav-toggle { display: block !important; }
+      
+      #nav-menu {
         position: fixed;
-        top: 70px;
+        top: 56px;
         left: 0;
         right: 0;
         background: white;
         flex-direction: column;
         gap: 0;
-        padding: 2rem;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        transform: translateY(-100%);
-        opacity: 0;
-        transition: all 0.3s ease;
-        pointer-events: none;
+        padding: 0;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
       }
-
-      .nav__links.active {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: all;
+      
+      #nav-menu.active {
+        max-height: 300px;
       }
-
-      .nav__links li {
-        padding: 1rem 0;
-        border-bottom: 1px solid var(--border);
+      
+      #nav-menu li {
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #e0e0e0;
       }
-
-      .contact__email {
-        padding: 0.7rem 1.5rem; /* Slightly reduced padding on mobile */
-        /* font-size clamp already handles the size, but this ensures good touch area */
-      }
-
-      .about__stats {
-        grid-template-columns: 1fr;
-      }
-
-      .projects__grid {
-        grid-template-columns: 1fr;
-      }
-
-      .achievements__grid {
-        grid-template-columns: 1fr;
-      }
+      
+      .stats, .projects-grid, .achievements-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-
 <body>
-  <!-- Navigation -->
   <nav class="nav">
-    <div class="nav__content">
-      <button class="nav__toggle" aria-label="Toggle navigation">☰</button>
-      <ul class="nav__links">
-        <li><a href="#about" class="nav__link">About</a></li>
-        <li><a href="#projects" class="nav__link">Projects</a></li>
-        <li><a href="#achievements" class="nav__link">Achievements</a></li>
-        <li><a href="#contact" class="nav__link">Contact</a></li>
-      </ul>
-    </div>
+    <ul id="nav-menu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="nav-toggle" style="display: none;">☰</button>
   </nav>
 
-  <!-- Header/Hero -->
   <header class="header">
-    <div class="header__content">
-      <h1 class="header__title">
-        Hi, I'm <span class="typing"></span>
-      </h1>
-      <p class="header__subtitle">Data Management & Analytics Specialist | Systems Analyst | Automation Expert</p>
-      <a href="#contact" class="header__cta">Get In Touch</a>
+    <div>
+      <h1>Hi, I'm <span id="name"></span></h1>
+      <p class="subtitle">Aspiring Data Analyst | IT Automation Specialist | Problem Solver</p>
+      <a href="#contact" class="cta">Get In Touch</a>
     </div>
   </header>
 
-  <!-- About Section -->
-  <section class="about" id="about">
-    <h2 class="section__title_inverse">About Me</h2>
-    <div class="about__content">
-      <div class="about__text">
-        <p>
-          I'm a passionate Data Management and Analytics Specialist with expertise in building robust data pipelines, 
-          ETL processes, and business intelligence solutions. With a strong background in IT automation and systems 
-          analysis, I transform complex data challenges into actionable insights that drive business decisions.
-        </p>
-        <p>
-          My approach combines technical proficiency with strategic thinking, ensuring that data solutions not only 
-          meet current needs but are scalable for future growth. I specialize in automating workflows, optimizing 
-          data processes, and creating intuitive dashboards that empower stakeholders to make data-driven decisions.
-        </p>
+  <section class="white-bg" id="about"><br><br>
+    <h2>About Me</h2>
+    <div class="about-text">
+      <p>I'm an IT professional transitioning into data analytics, bringing a strong foundation in Computer Science and Information Security. My background in automation and system administration has given me hands-on experience working with data—from building inventory management systems to creating automated workflows that process and analyze operational metrics.</p>
+      <p>I've successfully improved operational efficiency by 35% through data-driven automation scripts and generated over $20K in profit through analytical optimization of e-commerce operations. Now I'm applying these problem-solving skills to the field of data analytics, combining my technical programming background with a growing expertise in SQL, Python data analysis, and visualization tools to transform raw data into actionable insights.</p>
+    </div>
+    
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">35%</div>
+        <div class="stat-label">Data-Driven Efficiency Gain</div>
       </div>
-      
-      <div class="about__stats">
-        <div class="stat__card">
-          <div class="stat__number">5+</div>
-          <div class="stat__label">Years Experience</div>
-        </div>
-        <div class="stat__card">
-          <div class="stat__number">20+</div>
-          <div class="stat__label">Projects Completed</div>
-        </div>
-        <div class="stat__card">
-          <div class="stat__number">500+</div>
-          <div class="stat__label">Stakeholders Served</div>
-        </div>
+      <div class="stat">
+        <div class="stat-number">$20K+</div>
+        <div class="stat-label">Profit via Analytics Optimization</div>
       </div>
+      <div class="stat">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Data Projects Completed</div>
+      </div>
+    </div>
 
-      <div class="about__skills">
-        <h3>Core Competencies</h3>
-        <div class="skills__list">
-          <span class="skill__tag">Python</span>
-          <span class="skill__tag">SQL</span>
-          <span class="skill__tag">Data Pipeline Development</span>
-          <span class="skill__tag">ETL Processes</span>
-          <span class="skill__tag">Business Intelligence</span>
-          <span class="skill__tag">Power BI</span>
-          <span class="skill__tag">Tableau</span>
-          <span class="skill__tag">Data Visualization</span>
-          <span class="skill__tag">Excel Advanced Analytics</span>
-          <span class="skill__tag">Process Automation</span>
-          <span class="skill__tag">Database Management</span>
-          <span class="skill__tag">Azure</span>
-        </div>
-      </div>
+    <h3 style="text-align: center; margin: 3rem 0 1.5rem; color: #2c3e50;">Technical Skills & Growing Analytics Expertise</h3>
+    <div class="skills">
+      <span class="skill">Python (Data Analysis)</span>
+      <span class="skill">SQL</span>
+      <span class="skill">Data Visualization</span>
+      <span class="skill">Excel Analytics</span>
+      <span class="skill">Google Apps Script</span>
+      <span class="skill">ETL & Data Processing</span>
+      <span class="skill">Statistical Analysis</span>
+      <span class="skill">Database Management</span>
+      <span class="skill">Process Automation</span>
+      <span class="skill">C++</span>
+      <span class="skill">Java</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">API Integration</span>
+      <span class="skill">Web Scraping</span>
     </div>
   </section>
 
-  <!-- Recent Projects Section -->
-  <section class="projects" id="projects">
-    <h2 class="section__title">Recent Projects</h2>
+  <section id="projects">
+    <h2>Recent Projects</h2>
     <div class="loading" id="recent-loading">
       <div class="spinner"></div>
       <p>Loading recent projects from GitHub...</p>
     </div>
-    <div class="projects__grid" id="recent-grid" style="display: none;"></div>
+    <div class="projects-grid" id="recent-grid" style="display: none;"></div>
   </section>
 
-  <!-- All Projects Section -->
-  <section class="projects">
-    <h2 class="section__title">All GitHub Projects</h2>
+  <section>
+    <h2>All GitHub Projects</h2>
     <div class="loading" id="all-loading">
       <div class="spinner"></div>
       <p>Loading all projects from GitHub...</p>
     </div>
-    <div class="projects__grid" id="all-grid" style="display: none;"></div>
+    <div class="projects-grid" id="all-grid" style="display: none;"></div>
   </section>
 
-  <!-- Achievements Section -->
-  <section class="achievements" id="achievements">
-    <h2 class="section__title_inverse">Achievements & Certifications</h2>
-    <div class="achievements__grid">
-      <div class="achievement__card">
-        <div class="achievement__icon">🎓</div>
-        <h3 class="achievement__title">Data Analytics Certified</h3>
-        <p class="achievement__description">Advanced certification in data analytics and business intelligence</p>
+  <section class="white-bg" id="achievements">
+    <h2>Achievements & Certifications</h2>
+    <div class="achievements-grid">
+      <div class="achievement">
+        <div class="achievement-icon">📊</div>
+        <h3 class="achievement-title">Data-Driven Results</h3>
+        <p class="achievement-desc">Improved efficiency 35% through analytical automation and metrics tracking</p>
       </div>
-      <div class="achievement__card">
-        <div class="achievement__icon">⚡</div>
-        <h3 class="achievement__title">Process Optimization</h3>
-        <p class="achievement__description">Reduced data processing time by 60% through automation</p>
+      <div class="achievement">
+        <div class="achievement-icon">💡</div>
+        <h3 class="achievement-title">Analytics in Action</h3>
+        <p class="achievement-desc">Generated $20K+ profit using data analysis for pricing optimization</p>
       </div>
-      <div class="achievement__card">
-        <div class="achievement__icon">📊</div>
-        <h3 class="achievement__title">Dashboard Excellence</h3>
-        <p class="achievement__description">Built 20+ interactive dashboards serving 500+ stakeholders</p>
+      <div class="achievement">
+        <div class="achievement-icon">🔧</div>
+        <h3 class="achievement-title">ETL Pipeline Builder</h3>
+        <p class="achievement-desc">Created automated inventory systems with eBay API integration</p>
       </div>
-      <div class="achievement__card">
-        <div class="achievement__icon">🔧</div>
-        <h3 class="achievement__title">Systems Integration</h3>
-        <p class="achievement__description">Successfully integrated 15+ disparate data sources</p>
+      <div class="achievement">
+        <div class="achievement-icon">🎓</div>
+        <h3 class="achievement-title">Strong Foundation</h3>
+        <p class="achievement-desc">Computer Science & Information Security degrees with SQL expertise</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <h2 class="section__title">Get In Touch</h2>
-    <div class="contact__content">
-      <p class="contact__text">
-        I'm always interested in hearing about new opportunities, collaborations, or data challenges. 
-        Whether you're looking for expertise in data pipeline development, business intelligence solutions, 
-        or just want to connect, feel free to reach out!
-      </p>
-      <a href="mailto:jasondecker.dataanalytics@gmail.com" class="contact__email">Contact</a>
+  <section id="contact">
+    <h2>Get In Touch</h2>
+    <div class="contact-content">
+      <p class="contact-text">I'm actively seeking opportunities in data analytics where I can apply my technical programming background and analytical problem-solving skills. Whether you're looking for someone who can build data pipelines, create insightful visualizations, or automate data workflows, I'd love to connect and discuss how I can contribute to your team's success!</p>
+      <a href="mailto:jasondecker.dataanalytics@gmail.com" class="cta">Contact</a>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer__social">
-      <a href="https://github.com/JasonRyanDecker" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="GitHub">
+  <footer>
+    <div class="social">
+      <a href="https://github.com/JasonRyanDecker" target="_blank">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
         </svg>
       </a>
-      <a href="https://www.linkedin.com/in/jason-decker-9a14561ba/" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/in/jason-decker-9a14561ba/" target="_blank">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
         </svg>
       </a>
-      <a href="mailto:jasondecker.dataanalytics@gmail.com" class="footer__link" aria-label="Email">
+      <a href="mailto:jasondecker.dataanalytics@gmail.com">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
           <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
         </svg>
       </a>
     </div>
-    <p class="footer__text">&copy; 2025 Jason Decker. All rights reserved.</p>
+    <p>&copy; 2025 Jason Decker. All rights reserved.</p>
   </footer>
 
   <script>
     const excludeRepos = ["github-portfolio", "JasonRyanDecker"];
     
-    // Typing animation for name
     function typeWriter() {
-        const text = "Jason Decker";
-        const typingElement = document.querySelector('.typing');
-        // Add initial styles for centering the empty span
-        typingElement.style.display = 'inline-block';
-        typingElement.style.textAlign = 'center';
-        typingElement.style.width = '0.7em'; // Small width to center the cursor before text appears
-
-        let i = 0;
-
-        function type() {
-            if (i < text.length) {
-                typingElement.textContent += text.charAt(i);
-                // After the first character, remove the initial centering styles
-                if (i === 0) {
-                    typingElement.style.width = 'auto';
-                    typingElement.style.textAlign = 'left';
-                }
-                i++;
-                setTimeout(type, 150);
-            } else {
-                // Remove cursor after typing is complete
-                setTimeout(() => {
-                    typingElement.classList.remove('typing');
-                }, 500);
-            }
+      const text = "Jason Decker";
+      const el = document.getElementById('name');
+      let i = 0;
+      
+      function type() {
+        if (i < text.length) {
+          el.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, 150);
         }
-
-        type();
+      }
+      type();
     }
-
-    // --- UPDATED SCROLL RESTORATION LOGIC ---
-    document.addEventListener('DOMContentLoaded', () => {
-        // 1. Disable browser's automatic scroll restoration
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
-        // 2. Force an immediate scroll to the top (0, 0)
-        window.scrollTo(0, 0);
-
-        // Remove the 'loaded' class toggling since it's no longer needed for scroll control
-    });
-
-    // Start typing animation when page loads
-    window.addEventListener('load', () => {
-        typeWriter();
-    });
-    // --- END UPDATED SCROLL RESTORATION LOGIC ---
-
-    function getImageForLanguage(lang) {
-        const icons = {
-            "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-            "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-            "C++": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
-            "Java": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
-            "HTML": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-            "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-            "Shell": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg",
-            "R": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg",
-            "SQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-        };
-        return icons[lang] || "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg";
-    }
-
-    async function loadProjects() {
-        const recentLoadingEl = document.getElementById('recent-loading');
-        const recentGridEl = document.getElementById('recent-grid');
-        const allLoadingEl = document.getElementById('all-loading');
-        const allGridEl = document.getElementById('all-grid');
-
-        try {
-            const response = await fetch("https://api.github.com/users/JasonRyanDecker/repos?sort=updated&per_page=100");
-            
-            if (!response.ok) {
-                throw new Error(`GitHub API returned ${response.status}`);
-            }
-
-            const repos = await response.json();
-            const filteredRepos = repos.filter(repo => !excludeRepos.includes(repo.name));
-
-            if (filteredRepos.length === 0) {
-                throw new Error("No repositories found");
-            }
-
-            // Get 2 most recent repos
-            const recentRepos = filteredRepos.slice(0, 2);
-            const allRepos = filteredRepos.slice(2);
-
-            // Load recent projects
-            recentRepos.forEach(repo => {
-                const card = createProjectCard(repo);
-                recentGridEl.appendChild(card);
-            });
-
-            recentLoadingEl.style.display = 'none';
-            recentGridEl.style.display = 'grid';
-
-            // Load all other projects
-            allRepos.forEach(repo => {
-                const card = createProjectCard(repo);
-                allGridEl.appendChild(card);
-            });
-
-            allLoadingEl.style.display = 'none';
-            allGridEl.style.display = 'grid';
-
-        } catch (error) {
-            console.error("Error loading projects:", error);
-            const errorMsg = `<p style="color: #e74c3c;">Unable to load projects. Please visit <a href="https://github.com/JasonRyanDecker" target="_blank" style="color: #4a90e2;">GitHub</a> directly.</p>`;
-            recentLoadingEl.innerHTML = errorMsg;
-            allLoadingEl.innerHTML = errorMsg;
-        }
-    }
-
-    function createProjectCard(repo) {
-        const card = document.createElement('div');
-        card.className = 'project__card';
-        
-        const imgSrc = getImageForLanguage(repo.language);
-        const description = repo.description || "A project showcasing modern development practices and technical expertise.";
-        
-        let tags = '';
-        if (repo.language) {
-            tags = `<span class="project__tag">${repo.language}</span>`;
-        }
-
-        card.innerHTML = `
-            <div class="project__image">
-                <img src="${imgSrc}" alt="${repo.language || 'Project'} icon">
-            </div>
-            <div class="project__content">
-                <h3 class="project__title">${repo.name}</h3>
-                <p class="project__description">${description}</p>
-                <div class="project__tags">${tags}</div>
-                <div class="project__links">
-                    <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="project__link">View Code →</a>
-                </div>
-            </div>
-        `;
-        
-        return card;
-    }
-
+    
+    window.addEventListener('load', typeWriter);
+    
     // Mobile menu toggle
-    const navToggle = document.querySelector('.nav__toggle');
-    const navLinks = document.querySelector('.nav__links');
-
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
     navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+      navMenu.classList.toggle('active');
     });
-
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav__link').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-        });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
     });
-
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Add scroll effect to navbar
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('.nav');
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 100) {
-            nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-        } else {
-            nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        }
-
-        lastScroll = currentScroll;
-    });
-
-    // Load projects
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", loadProjects);
-    } else {
-        loadProjects();
+    
+    function getImageForLanguage(lang) {
+      const icons = {
+        "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+        "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+        "C++": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+        "Java": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+        "HTML": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+        "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+        "Shell": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg",
+        "R": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg",
+        "SQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+      };
+      return icons[lang] || "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg";
     }
-</script>
+    
+    async function loadProjects() {
+      const recentLoadingEl = document.getElementById('recent-loading');
+      const recentGridEl = document.getElementById('recent-grid');
+      const allLoadingEl = document.getElementById('all-loading');
+      const allGridEl = document.getElementById('all-grid');
+      
+      try {
+        const response = await fetch("https://api.github.com/users/JasonRyanDecker/repos?sort=updated&per_page=100");
+        
+        if (!response.ok) throw new Error(`GitHub API returned ${response.status}`);
+        
+        const repos = await response.json();
+        const filteredRepos = repos.filter(repo => !excludeRepos.includes(repo.name));
+        
+        if (filteredRepos.length === 0) throw new Error("No repositories found");
+        
+        const recentRepos = filteredRepos.slice(0, 2);
+        const allRepos = filteredRepos.slice(2);
+        
+        recentRepos.forEach(repo => {
+          const card = createProjectCard(repo);
+          recentGridEl.appendChild(card);
+        });
+        
+        recentLoadingEl.style.display = 'none';
+        recentGridEl.style.display = 'grid';
+        
+        allRepos.forEach(repo => {
+          const card = createProjectCard(repo);
+          allGridEl.appendChild(card);
+        });
+        
+        allLoadingEl.style.display = 'none';
+        allGridEl.style.display = 'grid';
+        
+      } catch (error) {
+        console.error("Error loading projects:", error);
+        const errorMsg = '<p style="color: #e74c3c;">Unable to load projects. Please visit <a href="https://github.com/JasonRyanDecker" target="_blank" style="color: #4a90e2;">GitHub</a> directly.</p>';
+        recentLoadingEl.innerHTML = errorMsg;
+        allLoadingEl.innerHTML = errorMsg;
+      }
+    }
+    
+    function createProjectCard(repo) {
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      
+      const imgSrc = getImageForLanguage(repo.language);
+      const description = repo.description || "A project showcasing modern development practices and technical expertise.";
+      
+      card.innerHTML = `
+        <div class="project-image">
+          <img src="${imgSrc}" alt="${repo.language || 'Project'} icon">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">${repo.name}</h3>
+          <p class="project-description">${description}</p>
+          <a href="${repo.html_url}" target="_blank" class="project-link">View Code →</a>
+        </div>
+      `;
+      
+      return card;
+    }
+    
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", loadProjects);
+    } else {
+      loadProjects();
+    }
+  </script>
 </body>
 </html>
